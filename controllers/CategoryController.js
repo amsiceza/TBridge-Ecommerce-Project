@@ -13,7 +13,7 @@ const CategoryController = {
         }
     },
 
-    // Funcion crear categorias
+    // Encontrar categoria por ID
     async getById(req, res) {
         try {
             const category = await Category.findByPk(req.params.id);
