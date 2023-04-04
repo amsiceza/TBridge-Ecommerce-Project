@@ -3,7 +3,7 @@ const { Product } = require('../models/index.js');
 
 const ProductController = {
 
-    // Funcion crear categorias
+    // Funcion crear producto
     async create(req, res) {
         try {
             const product = await Product.create(req.body);
@@ -13,6 +13,16 @@ const ProductController = {
         }
     },
 
+    // Encontrar categoria por ID
+    async updateById(req, res) {
+        try {
+            const product = await Product.findByPk(req.params.id);
+            const changeProduct = await product.update(req.body);
+            res.status(201).send({message: 'Producto actualizado con éxito', changeProduct});
+        } catch (error) {
+            console.error(error);
+        }
+    },
     
 
     
