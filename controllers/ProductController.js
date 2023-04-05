@@ -1,4 +1,4 @@
-const { Product, Category } = require('../models/index.js');
+const { Product, Category, sequelize } = require('../models/index.js');
 
 
 const ProductController = {
@@ -83,6 +83,18 @@ const ProductController = {
                 }
               });
             res.status(201).send({message: `Producto encontrado con precio (${req.params.price} €)`, product});
+        } catch (error) {
+            console.error(error);
+        }
+    },
+
+    // Ordenar descendente por precio
+    async orderDesc(req, res) {
+        try {
+            const products = await Product.findAll({
+                order: [['price_product', 'DESC']]
+              });
+            res.status(201).send({message: `Productos ordenados  descendente por precio `, products});
         } catch (error) {
             console.error(error);
         }

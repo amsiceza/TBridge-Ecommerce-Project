@@ -9,6 +9,7 @@ router.get('/getAllProducts',ProductController.getAllProducts);
 router.get('/getById/:id',ProductController.getById);
 router.get('/getByName/:name',ProductController.getByName);
 router.get('/getByPrice/:price',ProductController.getByPrice);
+router.get('/orderDesc',ProductController.orderDesc);
 
 
 
