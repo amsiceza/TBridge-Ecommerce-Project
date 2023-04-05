@@ -73,6 +73,20 @@ const ProductController = {
             console.error(error);
         }
     },
+
+    // Encontrar producto por nombre
+    async getByPrice(req, res) {
+        try {
+            const product = await Product.findOne({
+                where: {
+                  price_product: req.params.price
+                }
+              });
+            res.status(201).send({message: `Producto encontrado con precio (${req.params.price} €)`, product});
+        } catch (error) {
+            console.error(error);
+        }
+    },
     
 
     

@@ -8,6 +8,8 @@ router.delete('/deleteById/:id',ProductController.deleteById);
 router.get('/getAllProducts',ProductController.getAllProducts);
 router.get('/getById/:id',ProductController.getById);
 router.get('/getByName/:name',ProductController.getByName);
+router.get('/getByPrice/:price',ProductController.getByPrice);
+
 
 
 
