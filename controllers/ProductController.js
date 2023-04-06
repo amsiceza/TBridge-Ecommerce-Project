@@ -6,12 +6,19 @@ const ProductController = {
     // Funcion crear producto
     async create(req, res) {
         try {
-            const product = await Product.create(req.body);
-            res.status(201).send({ message: 'Producto creada con éxito', product });
+          const { serial_number, name_product, price_product, CategoryId } = req.body;
+      
+          if (!serial_number || !name_product || !price_product || !CategoryId) {
+            return res.status(400).send({ message: 'Todos los campos son obligatorios' });
+          }
+      
+          const product = await Product.create( req.body);
+          res.status(201).send({ message: 'Producto creada con éxito', product });
         } catch (error) {
-            console.error(error);
+          console.error(error);
+          res.status(500).send({ message: 'Ha ocurrido un error al crear el producto' });
         }
-    },
+      },
 
     // Actualizar por ID
     async updateById(req, res) {

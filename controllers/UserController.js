@@ -39,6 +39,27 @@ const UserController = {
           console.error(error);
         }
       },
+      
+      // Autenticar usuario primero
+    // async getUserOrders(req, res) {
+    //     const userId = req.user.id; // Obtener ID de usuario del token
+    //     try {
+    //       // Obtener el usuario con sus pedidos y productos asociados
+    //       const user = await User.findOne({
+    //         where: { id: userId },
+    //         include: [
+    //           {
+    //             model: Order,
+    //             include: [{ model: Product, attributes: ['id', 'name_product', 'price_product'] }],
+    //           },
+    //         ],
+    //       });
+    //       res.send(user);
+    //     } catch (error) {
+    //       console.error(error);
+    //       res.status(500).send({ message: 'Internal server error' });
+    //     }
+    //   }
 
 }
 
