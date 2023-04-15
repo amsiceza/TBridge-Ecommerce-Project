@@ -92,6 +92,28 @@ const UserController = {
         }
     },
 
+    // Funcion Log Out
+    // Primero deberiamos crear autenticacion
+    async logout(req, res) {  
+        console.log(req.user);
+        try {
+            console.log(req.headers.authorization);
+            await Token.destroy({
+                where: {
+                    [Op.and]: [
+                        { UserId: req.user.id },
+                        { token: req.headers.authorization }
+                    ]
+                }
+            });
+            res.send({ msg: `Desconectado ${req.user.username}` });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Error al desconectarse");
+        }
+
+    },
+
      
 
 }
