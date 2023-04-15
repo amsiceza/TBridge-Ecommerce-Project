@@ -113,7 +113,27 @@ const UserController = {
 
     },
 
-     
+    // Mostrar usuarios con sus pedidos y productos
+    async getUserOrderProduct(req, res) {
+        try {
+            const user = await User.findByPk(req.params.id, {
+                attributes: ["id", "username", "email"],
+                include: [{
+                    model: Order,
+                    attributes: ["id"],
+                    include: [{ 
+                        model: Product, 
+                        attributes: ["name_product", "price_product"],
+                        through: {attributes: []} // No muestra tabla intermedia
+                     }]  
+                }]
+            });
+            res.send(user);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        }
+    },
 
 }
 
