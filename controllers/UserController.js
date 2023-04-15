@@ -18,7 +18,6 @@ const UserController = {
 
     // Funcion crear usuario
     async create(req, res, next) {
-        // req.body.role = "user"; // Rol por defecto
         try {
             const password = await bcrypt.hashSync(req.body.password, 10);
             const user = await User.create({ 
