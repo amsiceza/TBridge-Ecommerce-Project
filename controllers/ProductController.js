@@ -1,6 +1,10 @@
+// CONTROLADOR PARA PRODUCTOS
+// Endoints relacionados con las productos
+
+// Importar los modelos de productos y categorias.
 const { Product, Category, sequelize } = require('../models/index.js');
 
-
+// Objeto con cada endpoint
 const ProductController = {
 
     // Funcion crear producto
@@ -111,4 +115,5 @@ const ProductController = {
     
 }
 
+// Exportar el objeto de endpoints para poder trabajar con ellos
 module.exports = ProductController

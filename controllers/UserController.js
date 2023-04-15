@@ -1,10 +1,19 @@
+// CONTROLADOR PARA PRODUCTOS
+// Endoints relacionados con las productos
+
+// Importar los modelos de user, token, sequelize
 const { User, Order, Token, Product, Sequelize } = require("../models/index.js");
+// Importamos bcrypts
 const bcrypt = require("bcryptjs");
+// Importamos jsonwebtoken con sus secretito
 const jwt = require("jsonwebtoken");
+// Secreto puesto en desarrollo
 const { jwt_secret } = require("../config/config.json")["development"]
 const { Op } = Sequelize;
+// Importamos archivo nodemailer.js
 const transporter = require("../config/nodemailer");
 
+// Objeto con cada endpoint
 const UserController = {
 
     // Funcion crear usuario
@@ -87,4 +96,5 @@ const UserController = {
 
 }
 
+// Exportar el objeto de endpoints para poder trabajar con ellos
 module.exports = UserController
