@@ -17,10 +17,45 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    serial_number: DataTypes.STRING,
-    name_product: DataTypes.STRING,
-    price_product: DataTypes.FLOAT,
-    CategoryId: DataTypes.INTEGER
+    
+    serial_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notNull: {
+          msg: "El numero de serie es obligatorio"
+        },
+      }
+    },
+
+    name_product: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "El nombre de producto es obligatorio"
+        },
+      }
+    },
+
+    price_product: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "El precio es obligatorio"
+        },
+        isFloat: {
+          msg:"Pon un precio valido"
+        }
+     }
+    } ,
+    
+    CategoryId: {
+      type: DataTypes.INTEGER,
+    }
+    
   }, {
     sequelize,
     modelName: 'Product',

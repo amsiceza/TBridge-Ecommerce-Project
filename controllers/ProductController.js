@@ -8,19 +8,22 @@ const { Product, Category, sequelize } = require('../models/index.js');
 const ProductController = {
 
     // Funcion crear producto
-    async create(req, res) {
+    async create(req, res, next) {
         try {
-          const { serial_number, name_product, price_product, CategoryId } = req.body;
+          const {serial_number, name_product, price_product, category_name } = req.body;
       
-          if (!serial_number || !name_product || !price_product || !CategoryId) {
-            return res.status(400).send({ message: 'Todos los campos son obligatorios' });
+          const category = await Category.findOne({ where: { category_name: category_name } });
+          if (!category) {
+            return res.status(404).send({ message: `No se encontró la categoría con el nombre ${category_name}` });
           }
       
-          const product = await Product.create( req.body);
-          res.status(201).send({ message: 'Producto creada con éxito', product });
+          const product = await Product.create({ serial_number, name_product, price_product });
+          await product.setCategory(category);
+      
+          res.status(201).send({ message: 'Producto creado con éxito', product });
         } catch (error) {
           console.error(error);
-          res.status(500).send({ message: 'Ha ocurrido un error al crear el producto' });
+          next(error);
         }
       },
 
