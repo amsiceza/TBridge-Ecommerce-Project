@@ -25,7 +25,6 @@ const authentication = async (req, res, next ) => {
   }
 };
 
-
 // Check si es admin
 const isAdmin = async (req, res, next) => {
   try {
