@@ -20,11 +20,14 @@ const UserController = {
     async create(req, res, next) {
         try {
             const password = await bcrypt.hashSync(req.body.password, 10);
+           // Establece el valor predeterminado de "user" para el campo "role"
+            const role = req.body.role || "user"; 
+            
             const user = await User.create({ 
                 ...req.body, 
                 password, 
                 confirmed: false,
-                role: "user",
+                role,
          }); 
 
             const emailToken = jwt.sign({ email: req.body.email }, jwt_secret, { expiresIn: '24h' })

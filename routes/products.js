@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const ProductController = require('../controllers/ProductController');
-const { authentication } = require("../middleware/authentication");
+const { authentication, isAdmin } = require("../middleware/authentication");
 
-router.post('/create',authentication,ProductController.create);
-router.put('/updateById/:id',authentication,ProductController.updateById);
-router.delete('/deleteById/:id',authentication,ProductController.deleteById);
+router.post('/create',authentication, isAdmin, ProductController.create);
+router.put('/updateById/:id',authentication, isAdmin, ProductController.updateById);
+router.delete('/deleteById/:id',authentication, isAdmin, ProductController.deleteById);
 router.get('/getAllProducts',ProductController.getAllProducts);
 router.get('/getById/:id',ProductController.getById);
 router.get('/getByName/:name',ProductController.getByName);
