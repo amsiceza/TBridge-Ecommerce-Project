@@ -66,7 +66,7 @@ localhost:3000/categories/getByName/Deporte
 ```
 ---
 
-### Pedidos
+### Pedidos 🗳
 * Endpoint para ver los pedidos junto a los productos que tienen
 ```
 localhost:3000/orders/getOrderProduct
@@ -77,7 +77,7 @@ localhost:3000/orders/create/
 ```
 ---
 
-### Usuarios
+### Usuarios 👤
 * Endpoint para registrar un usuario utilizando bcrypt
 ```
 localhost:3000/users/create
@@ -98,17 +98,17 @@ localhost:3000/users/logout
 
 ---
 
-### Seeders
+### Seeders 🪴
 * Crea 5 productos con un seeder
 
 ---
 
-### Implementación de roles
+### Implementación de roles 👥
 * Crear un rol Admin y que solo los usuarios con ese rol puedan crear, actualizar y eliminar productos
 
 ---
 
-### Multer
+### Multer 🌅
 * Investiga qué es el middleware multer e implementalo para poder adjuntar imágenes al crear o actualizar productos
 
 ---
