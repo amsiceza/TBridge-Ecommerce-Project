@@ -17,6 +17,17 @@ const CategoryController = {
         }
     },
 
+    // Funcion get todas categorias
+    async getAll(req, res) {
+        try {
+            const categories = await Category.findAll();
+            res.send(categories)
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        }
+    },
+
     // Encontrar categoria por ID
     async getById(req, res) {
         try {
@@ -55,6 +66,47 @@ const CategoryController = {
             res.status(201).send({message: 'Aqui mostramos todos las categorias con sus productos', categories});
         } catch (error) {
             console.error(error);
+        }
+    },
+
+
+    async updateById(req, res) {
+        try {
+            const foundCategory = await Category.findOne({
+                where: {
+                    id: req.params.id
+                }
+            });
+            if (!foundCategory) {
+                return res.status(404).send({ msg: `Category con id ${req.params.id} no se ha encontrado` }
+                )
+            }
+            await foundCategory.update(req.body);
+            res.send({ msg: "Producto actualizado", foundCategory });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        }
+    },
+
+
+    async deleteById(req, res) {
+        try {
+            const foundCategory = await Category.findOne({
+                where: {
+                    id: req.params.id
+                }
+            });
+            if (!foundCategory) {
+                return res.status(404).send({ msg: `Categoria con id ${req.params.id} not encontrada` });
+            }
+            await foundCategory.destroy();
+
+            res.send({ msg: "La siguiente categoria ha sido eliminada:", foundCategory })
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error)
         }
     },
 

@@ -2,7 +2,7 @@
 // Endoints relacionados con las productos
 
 // Importar los modelos de productos y categorias.
-const { Product, Category, sequelize } = require('../models/index.js');
+const { Product, Category, Review } = require('../models/index.js');
 
 // Objeto con cada endpoint
 const ProductController = {
@@ -53,10 +53,14 @@ const ProductController = {
     async getAllProducts(req, res) {
         try {
             const products = await Product.findAll({
-                include: {
+                include:[{
                   model: Category,
                   attributes: ['category_name']
-                }
+                },
+                {
+                    model: Review
+                }]
+
             });
             res.status(201).send({message: 'Aqui mostramos todos los productos con categorias', products});
         } catch (error) {
@@ -67,12 +71,25 @@ const ProductController = {
     // Encontrar producto por ID
     async getById(req, res) {
         try {
-            const product = await Product.findByPk(req.params.id);
-            res.status(201).send({message: `Producto encontrado con ID (${req.params.id})`, product});
+            const foundProduct = await Product.findByPk(req.params.id, {
+                include: [{
+                    model: Category,
+                    attributes: ["category_name"]
+                }, {
+                    model: Review,
+                    attributes: ["score", "UserId"]
+                }],
+            });
+            if (!foundProduct) {
+                return res.status(404).send({ msg: `Producto con id ${req.params.id} no encontrado` });
+            }
+            res.send(foundProduct)
         } catch (error) {
             console.error(error);
+            res.status(500).send(error)
         }
     },
+
 
     // Encontrar producto por nombre
     async getByName(req, res) {
