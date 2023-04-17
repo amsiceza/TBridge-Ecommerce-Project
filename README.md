@@ -2,27 +2,46 @@
 API de un ecommerce donde se pueden crear, actualizar, eliminar y buscar productos, categorías y pedidos, además de registrar y autenticar usuarios. También se pueden asignar roles y permisos a los usuarios y agregar reviews a los productos.
 
 ## Requisitos 
+
 ---
 
 ### Productos
 * Endpoint para crear un producto
-``` localhost:3000/products/create ```
+```
+ localhost:3000/products/create 
+```
 * Endpoint para actualizar un producto
-``` localhost:3000/products/updateById/id ```
+``` 
+localhost:3000/products/updateById/id 
+```
 * Endpoint para eliminar un producto
-``` localhost:3000/products/deleteById/id ```
+``` 
+localhost:3000/products/deleteById/id 
+```
 * El endpoint de traer productos debe mostrarse junto a la categoría o categorías que pertenece
-``` localhost:3000/products/getAllProducts ```
+``` 
+localhost:3000/products/getAllProducts 
+```
 * Endpoint que traiga un producto por su id
-``` localhost:3000/products/getById/id ```
+``` 
+localhost:3000/products/getById/id 
+```
 * Filtro para buscar producto por nombre
-``` localhost:3000/products/getByName/name ```
+``` 
+localhost:3000/products/getByName/name 
+```
 * Filtro para buscar producto por precio
-``` localhost:3000/products/getByPrice/price ```
+``` 
+localhost:3000/products/getByPrice/price 
+```
 * Filtro que ordene los productos de mayor a menor precio
-``` localhost:3000/products/orderDesc ```
+``` 
+localhost:3000/products/orderDesc 
+```
 * Implementa validación a la hora de crear un producto para que se rellene todos los campos y si no se hace que devuelva un mensaje.
+
 * Solo podrás crear, actualizar y eliminar productos si estás autenticado.
+
 ---
 
 ### Categorías
@@ -35,6 +54,7 @@ API de un ecommerce donde se pueden crear, actualizar, eliminar y buscar product
 ### Pedidos
 * Endpoint para ver los pedidos junto a los productos que tienen
 * Endpoint para crear pedidos
+
 ---
 
 ### Usuarios
