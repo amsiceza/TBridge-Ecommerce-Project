@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     
-    ReviewProductId: {
+    ProductId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    ReviewUserId: {
+    UserId: {
       type: DataTypes.INTEGER,
       // allowNull: false,
       // validate: {

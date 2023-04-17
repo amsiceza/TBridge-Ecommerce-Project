@@ -5,7 +5,7 @@ const ReviewController = {
 
     async create(req, res, next) {
         try {
-            const foundProduct = await Product.findByPk (req.body.ReviewProductId);
+            const foundProduct = await Product.findByPk (req.body.ProductId);
             if (!foundProduct) {
                 return res.status(404).send({msg:`Producto con id ${foundProduct} no encontrado`})
             }
@@ -23,10 +23,10 @@ const ReviewController = {
             const reviews = await Review.findAll({
                 include: [{ 
                     model: Product, 
-                    attributes: ["id", "name"]
+                    attributes: ["serial_number", "name_product"]
                 }, {
                     model: User,
-                    attributes: ["id", "name", "surname", "email"]
+                    attributes: ["username", "email"]
                  }] 
             })
 

@@ -6,36 +6,36 @@ module.exports = {
     return queryInterface.bulkInsert('Reviews', [
       {
         score: 4,
-        ReviewUserId: 1,
-        ReviewProductId: 1,
+        UserId: 1,
+        ProductId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         score: 3,
-        ReviewUserId: 2,
-        ReviewProductId: 1,
+        UserId: 2,
+        ProductId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         score: 5,
-        ReviewUserId: 3,
-        ReviewProductId: 1,
+        UserId: 3,
+        ProductId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         score: 2,
-        ReviewUserId: 4,
-        ReviewProductId: 2,
+        UserId: 4,
+        ProductId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         score: 1,
-        ReviewUserId: 5,
-        ReviewProductId: 3,
+        UserId: 5,
+        ProductId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       }
