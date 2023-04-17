@@ -110,27 +110,43 @@ localhost:3000/users/logout
 
 ---
 
-### Multer 🌅
+### Multer 🌅
 * Investigate what the Multer middleware is and implement it to be able to attach images when creating or updating products.
 
 ---
 
 ### Reviews 📊
 * CRUD review
+```
+localhost:3000/reviews/create
+localhost:3000/reviews/updateById/id
+localhost:3000/reviews/deleteById/id
+
+```
+
 * Endpoint to fetch reviews and display the user who wrote that review
+```
+localhost:3000/reviews/getAll
+```
 * Update the endpoint to fetch all products and now display the products along with their categories and reviews
+```
+localhost:3000/products/getAllProducts
+```
 * Update the endpoint to fetch a product by id and now display the products along with their categories and reviews
+```
+localhost:3000/products/getById/2
+```
 
 ---
 
 ## Technologies used 🛠
-Node.js
-Express
-Sequelize
-MySQL
-JWT
-Bcrypt
-Multer
+* Node.js
+* Express
+* Sequelize
+* MySQL
+* JWT
+* Bcrypt
+* Multer
 
 ---
 
@@ -160,7 +176,7 @@ npm start
 
 ---
 
-### Usage 🕹
+### Usage 🕹
 The API can be used from an API testing tool such as Postman or from a client application that makes HTTP requests.
 
 There you can send requests for each endpoint and see if they work correctly.
