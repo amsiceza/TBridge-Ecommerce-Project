@@ -49,28 +49,53 @@ localhost:3000/products/orderDesc
 ```
 localhost:3000/categories/create
 localhost:3000/categories/getAll
-localhost:3000/categories/updateById/2
-localhost:3000/categories/deleteById/1
+localhost:3000/categories/updateById/id
+localhost:3000/categories/deleteById/id
 ```
 * Endpoint para ver todas las categorías junto a los productos que tienen
+```
+localhost:3000/categories/getAllCategories
+```
 * Endpoint que devuelva una categoría por id
+```
+localhost:3000/categories/getById/id
+```
 * Filtro para buscar categoría por nombre
+```
+localhost:3000/categories/getByName/Deporte
+```
 ---
 
 ### Pedidos
 * Endpoint para ver los pedidos junto a los productos que tienen
+```
+localhost:3000/orders/getOrderProduct
+```
 * Endpoint para crear pedidos
-
+```
+localhost:3000/orders/create/
+```
 ---
 
 ### Usuarios
-Endpoint para registrar un usuario utilizando bcrypt
-Endpoint para login (utilizando bcrypt + JWT)
-Endpoint que nos traiga la información del usuario conectado junto a los pedidos que tiene y los productos que contiene cada pedido
-Endpoint para el logout
-Implementa validación a la hora de crear un usuario para que se rellene todos los campos y si no se hace que devuelva un mensaje
-Seeders
-Crea 5 productos con un seeder
+* Endpoint para registrar un usuario utilizando bcrypt
+```
+localhost:3000/users/create
+```
+* Endpoint para login (utilizando bcrypt + JWT)
+```
+localhost:3000/users/login
+```
+* Endpoint que nos traiga la información del usuario conectado junto a los pedidos que tiene y los productos que contiene cada pedido
+```
+localhost:3000/users/getUserOrderProduct/id
+```
+* Endpoint para el logout
+* Implementa validación a la hora de crear un usuario para que se rellene todos los campos y si no se hace que devuelva un mensaje
+
+### Seeders
+* Crea 5 productos con un seeder
+
 Extras complementarios
 Implementación de roles
 Crear un rol Admin y que solo los usuarios con ese rol puedan crear, actualizar y eliminar productos
