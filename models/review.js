@@ -45,12 +45,12 @@ module.exports = (sequelize, DataTypes) => {
 
     ReviewUserId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Usuario id tiene que ser rellenado"
-        },
-      }
+      // allowNull: false,
+      // validate: {
+      //   notNull: {
+      //     msg: "Usuario id tiene que ser rellenado"
+      //   },
+      // }
     },
    
   }, {

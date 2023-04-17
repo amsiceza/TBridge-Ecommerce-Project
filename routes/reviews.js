@@ -5,11 +5,11 @@ const router = express.Router();
 
 
 
-router.post("/create", ReviewController.create);
-router.get("/getAll", ReviewController.getAll);
-router.post("/updateById/:id", authentication, ReviewController.updateById);
-router.post("/approvedByadmin/:id", authentication, isAdmin, ReviewController.approvedByAdmin);
-router.delete("/deleteById/:id", authentication, ReviewController.deleteById)
+router.post("/create", authentication, ReviewController.create);
+// router.get("/getAll", ReviewController.getAll);
+// router.post("/updateById/:id", authentication, ReviewController.updateById);
+// router.post("/approvedByadmin/:id", authentication, isAdmin, ReviewController.approvedByAdmin);
+// router.delete("/deleteById/:id", authentication, ReviewController.deleteById)
 
 
 module.exports = router;
