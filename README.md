@@ -2,6 +2,9 @@
 # Ecommerce API 📺
 An ecommerce API where you can create, update, delete, and search products, categories, and orders, as well as register and authenticate users. Users can also be assigned roles and permissions, and reviews can be added to products.
 
+## Diagrama
+![Img](./img/diagram.jpg)
+
 ## Requirements 📋
 ### Products 📦
 * Endpoint to create a product
