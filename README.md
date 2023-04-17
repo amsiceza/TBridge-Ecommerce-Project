@@ -1,11 +1,11 @@
-# Ecommerce API
+# Ecommerce API 📺
 API de un ecommerce donde se pueden crear, actualizar, eliminar y buscar productos, categorías y pedidos, además de registrar y autenticar usuarios. También se pueden asignar roles y permisos a los usuarios y agregar reviews a los productos.
 
-## Requisitos 
+## Requisitos 📋
 
 ---
 
-### Productos
+### Productos 📦
 * Endpoint para crear un producto
 ```
  localhost:3000/products/create 
@@ -44,7 +44,7 @@ localhost:3000/products/orderDesc
 
 ---
 
-### Categorías
+### Categorías 🏷
 * CRUD categorias
 ```
 localhost:3000/categories/create
@@ -113,7 +113,7 @@ localhost:3000/users/logout
 
 ---
 
-### Reviews
+### Reviews 📊
 * CRUD review
 * Endpoint de traer reviews que las muestre junto al usuario que hizo esa review
 * Actualizar el endpoint de traer todos los productos y que ahora muestre los productos junto a sus categorías y sus reviews
@@ -121,7 +121,7 @@ localhost:3000/users/logout
 
 ---
 
-## Tecnologías utilizadas
+## Tecnologías utilizadas 🛠
 * Node.js
 * Express
 * Sequelize
@@ -132,7 +132,7 @@ localhost:3000/users/logout
 
 ---
 
-## Instalación
+## Instalación ⚙️ 
 
 1. Clonar el repositorio
 ```
@@ -161,46 +161,10 @@ sequelize-cli db:seed:all
 npm start
 ```
 
-## Uso
+## Uso 🕹
 La API se puede utilizar desde una herramienta de prueba de API como Postman o desde una aplicación cliente que haga peticiones HTTP.
 
-La documentación de la API se encuentra en la ruta /api-docs.
 
-Contribuir
-Si deseas contribuir a este proyecto, por favor, haz un fork del repositorio y crea una rama
+## Contribuir ⭐
+Si deseas contribuir a este proyecto, no dudes en poner una estrellita.
 
-### Creacion tabla users
-
-$ sequelize model:generate --name User --attributes first_name:string,last_name:string,username:string,email:string,password:string,role:string
-
-$ sequelize model:generate --name Category --attributes category_name:string
-
-$ sequelize model:generate --name Product --attributes serial_number:string,name_product:string,price_product:float,CategoryId:integer
-
-$ sequelize model:generate --name Order --attributes amount:integer,UserId:integer
-
-$ sequelize model:generate --name OrderProduct --attributes OrderId:integer,ProductId:integer
-
-$ sequelize model:generate --name Review --attributes score:integer,ReviewUserId:integer,ReviewProductId:integer
-
-
-
-sequelize seed:generate --name products-seeder
-
-sequelize seed:generate --name users-seeder
-
-sequelize seed:generate --name categories-seeder
-
-sequelize seed:generate --name orders-seeder
-
-sequelize seed:generate --name orders-products-seeder
-
-sequelize seed:generate --name reviews-seeder
-
-
-
-
-
-sequelize db:seed:all
-
-sequelize db:seed --seed <nombre_del_seeder>
