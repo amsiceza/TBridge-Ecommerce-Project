@@ -55,6 +55,10 @@ module.exports = (sequelize, DataTypes) => {
     
     CategoryId: {
       type: DataTypes.INTEGER,
+    },
+
+    img: {
+      type: DataTypes.STRING,
     }
     
   }, {

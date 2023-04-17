@@ -10,22 +10,30 @@ const ProductController = {
     // Funcion crear producto
     async create(req, res, next) {
         try {
-          const {serial_number, name_product, price_product, category_name } = req.body;
-      
+          const {serial_number, name_product, price_product, category_name} = req.body;
+    
           const category = await Category.findOne({ where: { category_name: category_name } });
           if (!category) {
             return res.status(404).send({ message: `No se encontró la categoría con el nombre ${category_name}` });
           }
-      
-          const product = await Product.create({ serial_number, name_product, price_product });
+    
+          const product = await Product.create({
+            serial_number,
+            name_product,
+            price_product,
+            category_name,
+            img: req.file.path // Agrega el campo de imagen a la base de datos
+          });
+    
           await product.setCategory(category);
-      
+    
           res.status(201).send({ message: 'Producto creado con éxito', product });
         } catch (error) {
           console.error(error);
           next(error);
         }
-      },
+    },
+    
 
     // Actualizar por ID
     async updateById(req, res) {

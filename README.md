@@ -112,7 +112,7 @@ localhost:3000/users/logout
 ---
 
 ### Multer 🌅
-* Investigate what the Multer middleware is and implement it to be able to attach images when creating or updating products.
+* Investigate what the Multer middleware is and implement it to be able to attach images when creating products.
 
 ---
 
