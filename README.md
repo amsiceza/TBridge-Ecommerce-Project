@@ -91,55 +91,77 @@ localhost:3000/users/login
 localhost:3000/users/getUserOrderProduct/id
 ```
 * Endpoint para el logout
+```
+localhost:3000/users/logout
+```
 * Implementa validación a la hora de crear un usuario para que se rellene todos los campos y si no se hace que devuelva un mensaje
+
+---
 
 ### Seeders
 * Crea 5 productos con un seeder
 
-Extras complementarios
-Implementación de roles
-Crear un rol Admin y que solo los usuarios con ese rol puedan crear, actualizar y eliminar productos
-Multer
-Investiga qué es el middleware multer e implementalo para poder adjuntar imágenes al crear o actualizar productos
-Reviews
-Endpoint de traer reviews que las muestre junto al usuario que hizo esa review
-Actualizar el endpoint de traer todos los productos y que ahora muestre los productos junto a sus categorías y sus reviews
-Actualizar el endpoint de traer producto por id y que ahora muestre los productos junto a sus categorías y sus reviews
-Tecnologías utilizadas
-Node.js
-Express
-Sequelize
-MySQL
-JWT
-Bcrypt
-Multer
-Instalación
-Clonar el repositorio
+---
 
-bash
-Copy code
-git clone https://github.com/tu-usuario/tu-repositorio.git
-Instalar las dependencias
+### Implementación de roles
+* Crear un rol Admin y que solo los usuarios con ese rol puedan crear, actualizar y eliminar productos
 
-Copy code
+---
+
+### Multer
+* Investiga qué es el middleware multer e implementalo para poder adjuntar imágenes al crear o actualizar productos
+
+---
+
+### Reviews
+* CRUD review
+* Endpoint de traer reviews que las muestre junto al usuario que hizo esa review
+* Actualizar el endpoint de traer todos los productos y que ahora muestre los productos junto a sus categorías y sus reviews
+* Actualizar el endpoint de traer producto por id y que ahora muestre los productos junto a sus categorías y sus reviews
+
+---
+
+## Tecnologías utilizadas
+* Node.js
+* Express
+* Sequelize
+* MySQL
+* JWT
+* Bcrypt
+* Multer
+
+---
+
+## Instalación
+
+1. Clonar el repositorio
+```
+https://github.com/tu-usuario/tu-repositorio.git 
+```
+2. Instalar las dependencias
+```
 npm install
-Configurar las variables de entorno en un archivo .env. Un ejemplo de archivo .env se encuentra en .env.example.
+```
 
-Ejecutar las migraciones
+3. Configurar las variables de entorno 
 
-Copy code
-npx sequelize-cli db:migrate
-Ejecutar los seeders
+4. Ejecutar las migraciones
+```
+ sequelize-cli db:migrate
+```
 
-less
-Copy code
-npx sequelize-cli db:seed:all
-Iniciar el servidor
+5. Ejecutar los seeders
 
-sql
-Copy code
+```
+sequelize-cli db:seed:all
+```
+
+6. Iniciar el servidor
+```
 npm start
-Uso
+```
+
+## Uso
 La API se puede utilizar desde una herramienta de prueba de API como Postman o desde una aplicación cliente que haga peticiones HTTP.
 
 La documentación de la API se encuentra en la ruta /api-docs.
