@@ -41,33 +41,37 @@ const ReviewController = {
     
     async updateById(req, res) {
         try {
+          const review = await Review.findByPk(req.params.id);
+          if (review.UserId !== req.user.id) { 
+            return res.status(401).send("No autorizado para actualizar esta review");
+          }
+          const updatedReview = await review.update({
+            score: req.body.score
+          }, { 
+            fields: ['score'] // Solo permite actualizar el campo 'score'
+          });
+          res.send({ msg: `Review actualizada`, review: updatedReview });
+        } catch(error){
+          console.error(error);
+          res.status(500).send(error);
+        }
+    },
+
+
+    async deleteById(req, res) {
+        try {
             const review = await Review.findByPk(req.params.id);
-            if (review.UserId !== req.user.id) { 
-                return res.status(401).send("Not authorised to update this review");
+            if (review.UserId !== req.user.id) {
+                return res.status(401).send("No autorizado para actualizar esta review");
             }
-         await review.update(req.body);
-            res.send({msg: `Review updated`, review})
-         } catch(error){
+            await review.destroy();
+            res.send({msg: `Review borrada`, review})
+
+        } catch(error){
             console.error(error);
             res.status(500).send(error);
         }
-            },
-
-
-        async deleteById(req, res) {
-            try {
-                const review = await Review.findByPk(req.params.id);
-                if (review.UserId !== req.user.id) {
-                    return res.status(401).send("Not authorised to delete this review");
-                }
-                await review.destroy();
-                res.send({msg: `Review deleted`, review})
-
-             } catch(error){
-                console.error(error);
-                res.status(500).send(error);
-            }
-                },
+    },
         
     
 
