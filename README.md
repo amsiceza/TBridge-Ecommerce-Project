@@ -46,6 +46,12 @@ localhost:3000/products/orderDesc
 
 ### Categorías
 * CRUD categorias
+```
+localhost:3000/categories/create
+localhost:3000/categories/getAll
+localhost:3000/categories/updateById/2
+localhost:3000/categories/deleteById/1
+```
 * Endpoint para ver todas las categorías junto a los productos que tienen
 * Endpoint que devuelva una categoría por id
 * Filtro para buscar categoría por nombre
