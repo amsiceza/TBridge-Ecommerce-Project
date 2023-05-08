@@ -19,13 +19,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product.init({
     
-    serial_number: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notNull: {
-          msg: "El numero de serie es obligatorio"
+          msg: "La descripcion es obligatorio"
         },
       }
     },
