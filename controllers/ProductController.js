@@ -18,11 +18,8 @@ const ProductController = {
           }
     
           const product = await Product.create({
-            serial_number,
-            name_product,
-            price_product,
-            category_name,
-            img: req.file.path // Agrega el campo de imagen a la base de datos
+            ...req.body,
+            img: req.file.filename // Agrega el campo de imagen a la base de datos
           });
     
           await product.setCategory(category);
@@ -38,7 +35,10 @@ const ProductController = {
     // Actualizar por ID
     async updateById(req, res) {
         try {
-            const product = await Product.findByPk(req.params.id);
+            const product = await Product.findByPk({
+                ...req.body,
+                img: req.file.filename
+            });
             const changeProduct = await product.update(req.body);
             res.status(201).send({message: 'Producto actualizado con éxito', changeProduct});
         } catch (error) {
