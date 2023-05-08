@@ -35,16 +35,25 @@ const ProductController = {
     // Actualizar por ID
     async updateById(req, res) {
         try {
-            const product = await Product.findByPk({
-                ...req.body,
-                img: req.file.filename
-            });
-            const changeProduct = await product.update(req.body);
-            res.status(201).send({message: 'Producto actualizado con éxito', changeProduct});
+          const { id } = req.params; 
+          const product = await Product.findByPk(id); 
+          if (!product) {
+            return res.status(404).send({ message: "Producto no encontrado" });
+          }
+          const updatedProduct = await product.update({
+            ...req.body,
+            img: req.file.filename,
+          }); 
+          res.status(201).send({
+            message: "Producto actualizado con éxito",
+            updatedProduct,
+          });
         } catch (error) {
-            console.error(error);
+          console.error(error);
+          res.status(500).send({ message: "Error al actualizar el producto" });
         }
-    },
+      },     
+      
 
     // ELiminar por ID
     async deleteById(req, res) {
