@@ -138,6 +138,30 @@ const UserController = {
         }
     },
 
+    async getConnectedUser(req, res) {
+        try {
+            console.log('first')
+            const user = await User.findByPk(req.user.id, {
+                attributes: ["id", "username", "email","first_name","last_name"],
+                include: [{
+                    model: Order,
+                    attributes: ["id"],
+                    include: [{ 
+                        model: Product, 
+                        attributes: ["name_product", "price_product"],
+                        through: {attributes: []} // No muestra tabla intermedia
+                     }]  
+                }]
+            });
+            console.log(user)
+            res.send(user);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send(error);
+        }
+    },
+    
+    
 }
 
 // Exportar el objeto de endpoints para poder trabajar con ellos

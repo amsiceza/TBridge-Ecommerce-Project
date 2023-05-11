@@ -5,9 +5,9 @@ const upload = require('../middleware/multer');
 const ProductController = require('../controllers/ProductController');
 
 
-router.post('/create',authentication, isAdmin, upload.single('img'), ProductController.create);
+router.post('/create', upload.single('img'), ProductController.create);
 router.put('/updateById/:id',authentication, isAdmin, upload.single('img'), ProductController.updateById);
-router.delete('/deleteById/:id',authentication, isAdmin, ProductController.deleteById);
+router.delete('/deleteById/:id', ProductController.deleteById);
 router.get('/getAllProducts',ProductController.getAllProducts);
 router.get('/getById/:id',ProductController.getById);
 router.get('/getByName/:name',ProductController.getByName);
