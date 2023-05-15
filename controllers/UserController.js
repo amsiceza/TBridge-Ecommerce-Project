@@ -142,7 +142,7 @@ const UserController = {
         try {
             console.log('first')
             const user = await User.findByPk(req.user.id, {
-                attributes: ["id", "username", "email","first_name","last_name"],
+                attributes: ["id", "username", "email","first_name","last_name", "role"],
                 include: [{
                     model: Order,
                     attributes: ["id"],
