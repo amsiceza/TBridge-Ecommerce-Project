@@ -2,7 +2,7 @@
 // Endoints relacionados con las productos
 
 // Importar los modelos de user, token, sequelize
-const { User, Order, Token, Product, Sequelize } = require("../models/index.js");
+const { User, Order, Token, Product, Sequelize,OrderProduct } = require("../models/index.js");
 // Importamos bcrypts
 const bcrypt = require("bcryptjs");
 // Importamos jsonwebtoken con sus secretito
@@ -146,14 +146,18 @@ const UserController = {
                 include: [{
                     model: Order,
                     attributes: ["id"],
-                    include: [{ 
-                        model: Product, 
-                        attributes: ["name_product", "price_product"],
-                        through: {attributes: []} // No muestra tabla intermedia
-                     }]  
+                    include:[
+                        {
+                           
+                                model: Product, 
+                                attributes: ["name_product", "price_product","id" ],
+                                through: {attributes: ["amount"]} ,// No muestra tabla intermedia
+                       
+                              
+                        }
+                    ]
                 }]
             });
-            console.log(user)
             res.send(user);
         } catch (error) {
             console.error(error);
