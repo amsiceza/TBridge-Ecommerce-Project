@@ -145,12 +145,12 @@ const UserController = {
                 attributes: ["id", "username", "email","first_name","last_name", "role"],
                 include: [{
                     model: Order,
-                    attributes: ["id"],
+                    attributes: ["id", "createdAt"],
                     include:[
                         {
                            
                                 model: Product, 
-                                attributes: ["name_product", "price_product","id" ],
+                                attributes: ["name_product", "price_product","id","img"],
                                 through: {attributes: ["amount"]} ,// No muestra tabla intermedia
                        
                               
